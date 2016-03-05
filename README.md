@@ -4,7 +4,12 @@ Riemann Zeta Function
 
 > Riemann [Zeta][zeta-function] function.
 
+The [Zeta][zeta-function] function evaluated at `s` is
 
+<div class="equation" align="center" data-raw-text="\zeta(s) =\sum_{k=1}^\infty\frac{1}{k^s}" data-equation="">
+	<img src="https://cdn.rawgit.com/math-io/zeta/faeb230ec3e8dba0e1011b5ddfe219c784e98c67/docs/img/eqn.svg" alt="Infinite series for zeta function">
+	<br>
+</div>
 
 ## Installation
 
@@ -22,7 +27,7 @@ var zeta = require( 'math-zeta' );
 
 #### zeta( x )
 
-Evaluates the [zeta function][zeta-function].
+Evaluates the Riemann [zeta function][zeta-function].
 
 ``` javascript
 var val = zeta( 1.1 );
@@ -142,4 +147,4 @@ Copyright &copy; 2016. The [Compute.io][compute-io] Authors.
 [testling]: https://ci.testling.com
 
 [compute-io]: https://github.com/compute-io/
-[zeta-function]: https://en.wikipedia.org/wiki/Zeta_function
+[zeta-function]: https://en.wikipedia.org/wiki/Riemann_zeta_function
