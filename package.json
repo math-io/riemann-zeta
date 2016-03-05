@@ -1,0 +1,49 @@
+{
+  "name": "math-zeta",
+  "version": "0.0.0",
+  "description": "Riemann zeta function",
+  "author": {
+    "name": "Philipp Burckhardt",
+    "email": "pburckhardt@outlook.com"
+  },
+  "contributors": [
+    {
+      "name": "Philipp Burckhardt",
+      "email": "pburckhardt@outlook.com"
+    }
+  ],
+  "scripts": {
+    "test": "tape \"./test/*.js\"",
+    "test-cov": "istanbul cover --dir ./reports/coverage --report lcov tape -- \"./test/*.js\"",
+    "coverage": "istanbul cover --dir ./reports/codecov/coverage --report lcovonly tape -- \"./test/*.js\" && cat ./reports/codecov/coverage/lcov.info | codecov && rm -rf ./reports/codecov"
+  },
+  "main": "./lib",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/math-io/zeta.git"
+  },
+  "keywords": [],
+  "bugs": { 
+    "url": "https://github.com/math-io/zeta/issues"
+  },
+  "dependencies": {
+    "math-abs": "^1.0.2",
+    "math-evalrational": "^1.0.0",
+    "math-exp": "^1.0.0",
+    "math-floor": "^1.0.1",
+    "math-gamma": "^1.0.2",
+    "math-power": "^1.0.0",
+    "math-sinpi": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "3.x.x",
+    "codecov": "1.x.x",
+    "compute-linspace": "^1.0.0",
+    "istanbul": "^0.4.1",
+    "jshint": "2.x.x",
+    "jshint-stylish": "2.x.x",
+    "tap-spec": "4.x.x",
+    "tape": "4.x.x"
+  },
+  "license": "MIT"
+}
