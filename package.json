@@ -1,7 +1,7 @@
 {
   "name": "math-zeta",
   "version": "0.0.0",
-  "description": "Riemann zeta function",
+  "description": "Riemann Zeta function.",
   "author": {
     "name": "Philipp Burckhardt",
     "email": "pburckhardt@outlook.com"
@@ -10,11 +10,18 @@
     {
       "name": "Philipp Burckhardt",
       "email": "pburckhardt@outlook.com"
+    },
+    {
+      "name": "Athan Reines",
+      "email": "kgryte@gmail.com"
     }
   ],
   "scripts": {
-    "test": "tape \"./test/*.js\"",
+    "test": "if [ \"${TRAVIS}\" ]; then npm run test-ci; else npm run test-local; fi",
+    "test-local": "tape \"./test/*.js\" | tap-spec",
+    "test-ci": "npm run test-local && xvfb-run npm run test-browsers",
     "test-cov": "istanbul cover --dir ./reports/coverage --report lcov tape -- \"./test/*.js\"",
+    "test-browsers": "browserify ./test/*.js | testling | tap-spec",
     "coverage": "istanbul cover --dir ./reports/codecov/coverage --report lcovonly tape -- \"./test/*.js\" && cat ./reports/codecov/coverage/lcov.info | codecov && rm -rf ./reports/codecov"
   },
   "main": "./lib",
@@ -23,7 +30,7 @@
     "url": "git://github.com/math-io/zeta.git"
   },
   "keywords": [],
-  "bugs": { 
+  "bugs": {
     "url": "https://github.com/math-io/zeta/issues"
   },
   "dependencies": {
@@ -36,6 +43,7 @@
     "math-sinpi": "^1.0.0"
   },
   "devDependencies": {
+    "browserify": "13.x.x",
     "chai": "3.x.x",
     "codecov": "1.x.x",
     "compute-linspace": "^1.0.0",
@@ -43,7 +51,26 @@
     "jshint": "2.x.x",
     "jshint-stylish": "2.x.x",
     "tap-spec": "4.x.x",
-    "tape": "4.x.x"
+    "tape": "4.x.x",
+    "testling": "1.x.x"
+  },
+  "testling": {
+    "files": [
+      "test/*.js"
+    ],
+    "browsers": [
+      "iexplore/6.0..latest",
+      "firefox/3.0..latest",
+      "firefox/nightly",
+      "chrome/4.0..latest",
+      "chrome/canary",
+      "opera/10.0..latest",
+      "opera/next",
+      "safari/4.0..latest",
+      "ipad/6.0..latest",
+      "iphone/6.0..latest",
+      "android-browser/4.2..latest"
+    ]
   },
   "license": "MIT"
 }
