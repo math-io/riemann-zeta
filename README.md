@@ -7,7 +7,7 @@ Riemann Zeta Function
 The Riemann [Zeta][zeta-function] function evaluated at `s` 
 
 <div class="equation" align="center" data-raw-text="\zeta(s) =\sum_{k=1}^\infty\frac{1}{k^s}" data-equation="eq:riemann_zeta_function">
-	<img src="https://cdn.rawgit.com/math-io/zeta/faeb230ec3e8dba0e1011b5ddfe219c784e98c67/docs/img/eqn.svg" alt="Infinite series for zeta function">
+	<img src="https://cdn.rawgit.com/math-io/riemann-zeta/faeb230ec3e8dba0e1011b5ddfe219c784e98c67/docs/img/eqn.svg" alt="Infinite series for zeta function">
 	<br>
 </div>
 
@@ -15,14 +15,14 @@ The Riemann [Zeta][zeta-function] function evaluated at `s`
 ## Installation
 
 ``` bash
-$ npm install math-zeta
+$ npm install math-riemann-zeta
 ```
 
 
 ## Usage
 
 ``` javascript
-var zeta = require( 'math-zeta' );
+var zeta = require( 'math-riemann-zeta' );
 ```
 
 
@@ -55,7 +55,7 @@ val = zeta( NaN );
 
 ``` javascript
 var linspace = require( 'compute-linspace' );
-var zeta = require( 'math-zeta' );
+var zeta = require( 'math-riemann-zeta' );
 
 var x = linspace( -50, 50, 200 );
 var v;
@@ -131,23 +131,23 @@ $ make view-browser-tests
 Copyright &copy; 2016. The [Compute.io][compute-io] Authors.
 
 
-[npm-image]: http://img.shields.io/npm/v/math-zeta.svg
-[npm-url]: https://npmjs.org/package/math-zeta
+[npm-image]: http://img.shields.io/npm/v/math-riemann-zeta.svg
+[npm-url]: https://npmjs.org/package/math-riemann-zeta
 
-[build-image]: http://img.shields.io/travis/math-io/zeta/master.svg
-[build-url]: https://travis-ci.org/math-io/zeta
+[build-image]: http://img.shields.io/travis/math-io/riemann-zeta/master.svg
+[build-url]: https://travis-ci.org/math-io/riemann-zeta
 
-[coverage-image]: https://img.shields.io/codecov/c/github/math-io/zeta/master.svg
-[coverage-url]: https://codecov.io/github/math-io/zeta?branch=master
+[coverage-image]: https://img.shields.io/codecov/c/github/math-io/riemann-zeta/master.svg
+[coverage-url]: https://codecov.io/github/math-io/riemann-zeta?branch=master
 
-[dependencies-image]: http://img.shields.io/david/math-io/zeta.svg
-[dependencies-url]: https://david-dm.org/math-io/zeta
+[dependencies-image]: http://img.shields.io/david/math-io/riemann-zeta.svg
+[dependencies-url]: https://david-dm.org/math-io/riemann-zeta
 
-[dev-dependencies-image]: http://img.shields.io/david/dev/math-io/zeta.svg
-[dev-dependencies-url]: https://david-dm.org/dev/math-io/zeta
+[dev-dependencies-image]: http://img.shields.io/david/dev/math-io/riemann-zeta.svg
+[dev-dependencies-url]: https://david-dm.org/dev/math-io/riemann-zeta
 
-[github-issues-image]: http://img.shields.io/github/issues/math-io/zeta.svg
-[github-issues-url]: https://github.com/math-io/zeta/issues
+[github-issues-image]: http://img.shields.io/github/issues/math-io/riemann-zeta.svg
+[github-issues-url]: https://github.com/math-io/riemann-zeta/issues
 
 [tape]: https://github.com/substack/tape
 [istanbul]: https://github.com/gotwarlost/istanbul

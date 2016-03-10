@@ -1,5 +1,5 @@
 {
-  "name": "math-zeta",
+  "name": "math-riemann-zeta",
   "version": "0.0.0",
   "description": "Riemann Zeta function.",
   "author": {
@@ -27,11 +27,11 @@
   "main": "./lib",
   "repository": {
     "type": "git",
-    "url": "git://github.com/math-io/zeta.git"
+    "url": "git://github.com/math-io/riemann-zeta.git"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/math-io/zeta/issues"
+    "url": "https://github.com/math-io/riemann-zeta/issues"
   },
   "dependencies": {
     "math-abs": "^1.0.2",
