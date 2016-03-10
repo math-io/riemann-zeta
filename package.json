@@ -29,7 +29,24 @@
     "type": "git",
     "url": "git://github.com/math-io/riemann-zeta.git"
   },
-  "keywords": [],
+  "keywords": [
+    "compute-io",
+    "compute.io",
+    "compute",
+    "computation",
+    "math-io",
+    "math",
+    "mathematics",
+    "math.io",
+    "number",
+    "zeta",
+    "riemann",
+    "euler",
+    "number theory",
+    "physics",
+    "special function",
+    "complex analysis"
+  ],
   "bugs": {
     "url": "https://github.com/math-io/riemann-zeta/issues"
   },
