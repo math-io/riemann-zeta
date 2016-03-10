@@ -4,7 +4,7 @@ Riemann Zeta Function
 
 > [Riemann zeta][zeta-function] function.
 
-The [Riemann zeta][zeta-function] function is the [analytic continuation][analytical-continuation] of the infinite series 
+The [Riemann zeta][zeta-function] function is the [analytic continuation][analytic-continuation] of the infinite series 
 
 <div class="equation" align="center" data-raw-text="\zeta(s) =\sum_{k=1}^\infty\frac{1}{k^s}" data-equation="eq:riemann_zeta_function">
 	<img src="https://cdn.rawgit.com/math-io/riemann-zeta/faeb230ec3e8dba0e1011b5ddfe219c784e98c67/docs/img/eqn.svg" alt="Riemann zeta function">
