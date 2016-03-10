@@ -4,12 +4,13 @@ Riemann Zeta Function
 
 > Riemann [Zeta][zeta-function] function.
 
-The [Zeta][zeta-function] function evaluated at `s` is
+The Riemann [Zeta][zeta-function] function evaluated at `s` 
 
-<div class="equation" align="center" data-raw-text="\zeta(s) =\sum_{k=1}^\infty\frac{1}{k^s}" data-equation="">
+<div class="equation" align="center" data-raw-text="\zeta(s) =\sum_{k=1}^\infty\frac{1}{k^s}" data-equation="eq:riemann_zeta_function">
 	<img src="https://cdn.rawgit.com/math-io/zeta/faeb230ec3e8dba0e1011b5ddfe219c784e98c67/docs/img/eqn.svg" alt="Infinite series for zeta function">
 	<br>
 </div>
+
 
 ## Installation
 
@@ -41,6 +42,12 @@ val = zeta( 70 );
 
 val = zeta( 0.5 );
 // returns ~-1.46
+
+val = zeta( 1.0 );
+// returns NaN
+
+val = zeta( NaN );
+// returns NaN
 ```
 
 
