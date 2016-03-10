@@ -30,7 +30,7 @@ var zeta = require( 'math-riemann-zeta' );
 
 #### zeta( s )
 
-Evaluates the [Riemann zeta][zeta-function] function as a function of a real variable `s`.
+Evaluates the [Riemann zeta][zeta-function] function as a function of a real variable `s` (i.e., `t = 0`).
 
 ``` javascript
 var v = zeta( 1.1 );
