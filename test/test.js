@@ -6,6 +6,7 @@ var tape = require( 'tape' );
 var abs = require( 'math-abs' );
 var linspace = require( 'compute-linspace' );
 var PINF = require( 'const-pinf-float64' );
+var EPS = require( 'const-eps-float64' );
 var zeta = require( './../lib' );
 
 
@@ -41,7 +42,7 @@ tape( 'the function evaluates the Riemann zeta function', function test( t ) {
 	for ( i = 0; i < s.length; i++ ) {
 		v = zeta( s[ i ] );
 		delta = abs( v - expected[ i ] );
-		tol = 7e-15 * Math.max( 1, abs( v ), abs( expected[ i ]) );
+		tol = (31*EPS) * Math.max( 1, abs( v ), abs( expected[ i ]) );
 		t.ok( delta <= tol, 'within tolerance. s: ' + s[i] + '. v: ' + v + '. E: ' + expected[i] + '. Δ: ' + delta + '. Tol: ' + tol + '.' );
 	}
 	t.end();
