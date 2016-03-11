@@ -41,8 +41,8 @@ tape( 'the function evaluates the Riemann zeta function', function test( t ) {
 	for ( i = 0; i < s.length; i++ ) {
 		v = zeta( s[ i ] );
 		delta = abs( v - expected[ i ] );
-		tol = 1e-14 * Math.max( 1, abs( v ), abs( expected[ i ]) );
-		t.ok( delta <= tol, 'within tolerance. s: ' + s[i] + '. Value: ' + v + '. Expected: ' + expected[i] + '. Tolerance: ' + tol + '.' );
+		tol = 7e-15 * Math.max( 1, abs( v ), abs( expected[ i ]) );
+		t.ok( delta <= tol, 'within tolerance. s: ' + s[i] + '. v: ' + v + '. E: ' + expected[i] + '. Δ: ' + delta + '. Tol: ' + tol + '.' );
 	}
 	t.end();
 });
