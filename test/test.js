@@ -5,7 +5,9 @@
 var tape = require( 'tape' );
 var abs = require( 'math-abs' );
 var linspace = require( 'compute-linspace' );
+var pow = require( 'math-power' );
 var PINF = require( 'const-pinf-float64' );
+var NINF = require( 'const-ninf-float64' );
 var EPS = require( 'const-eps-float64' );
 var zeta = require( './../lib' );
 
@@ -42,7 +44,7 @@ tape( 'the function evaluates the Riemann zeta function', function test( t ) {
 	for ( i = 0; i < s.length; i++ ) {
 		v = zeta( s[i] );
 		delta = abs( v - expected[i] );
-		tol = (34*EPS) * Math.max( 1, abs( v ), abs( expected[i] ) );
+		tol = 34 * EPS * abs( expected[i] );
 		t.ok( delta <= tol, 'within tolerance. s: '+s[i]+'. v: '+v+'. E: '+expected[i]+'. Δ: '+delta+'. Tol: '+tol+'.' );
 	}
 	t.end();
@@ -63,7 +65,7 @@ tape( 'if evaluated at a pole (`s = 1`), the function returns `NaN`', function t
 	t.end();
 });
 
-tape( 'the function evaluates returns `1` for all input values greater or equal than `56`', function test( t ) {
+tape( 'the function returns `1` for all input values greater or equal than `56`', function test( t ) {
 	var s;
 	var v;
 	var i;
@@ -76,6 +78,35 @@ tape( 'the function evaluates returns `1` for all input values greater or equal 
 	v = zeta( PINF );
 	t.equal( v, 1, 'returns 1 when provided +infinity' );
 
+	t.end();
+});
+
+tape( 'the function returns `0` for all even negative integers', function test( t ) {
+	var s;
+	var v;
+	var i;
+
+	s = linspace( -2, -200, 100 );
+	for ( i = 0; i < s.length; i++ ) {
+		v = zeta( s[ i ] );
+		t.equal( v, 0.0, 'returns 0 when provided '+s[i] );
+	}
+	s = -pow( 2, 32 ); // |s| is greater than MAX_INT32
+	v = zeta( s );
+	t.equal( v, 0.0, 'returns 0 when provided '+s );
+	t.end();
+});
+
+tape( 'the function returns `+-infinity` for large negative non-integer values', function test( t ) {
+	var s;
+	var v;
+	var i;
+
+	s = linspace( -1000.321, -10000.123, 103 );
+	for ( i = 0; i < s.length; i++ ) {
+		v = zeta( s[ i ] );
+		t.ok( v === PINF || v === NINF, 'returns '+v+' when provided '+s[i] );
+	}
 	t.end();
 });
 
