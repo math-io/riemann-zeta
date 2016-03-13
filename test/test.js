@@ -97,20 +97,7 @@ tape( 'the function returns `0` for all even negative integers', function test( 
 	t.end();
 });
 
-tape( 'the function returns `+-infinity` for large negative non-integer values', function test( t ) {
-	var s;
-	var v;
-	var i;
-
-	s = linspace( -1000.321, -10000.123, 103 );
-	for ( i = 0; i < s.length; i++ ) {
-		v = zeta( s[ i ] );
-		t.ok( v === PINF || v === NINF, 'returns '+v+' when provided '+s[i] );
-	}
-	t.end();
-});
-
-tape( 'the function handles negative values which are slightly larger than the maximum factorial', function test( t ) {
+tape( 'the function handles negative values which are larger in magnitude than the maximum factorial', function test( t ) {
 	var expected;
 	var delta;
 	var tol;
@@ -137,6 +124,19 @@ tape( 'the function handles negative values which are slightly larger than the m
 
 	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. E: '+expected+' Δ: '+delta+'. tol: '+tol );
 
+	t.end();
+});
+
+tape( 'the function returns `+-infinity` for large negative non-integer values', function test( t ) {
+	var s;
+	var v;
+	var i;
+
+	s = linspace( -259.78778778778684, -10000.123, 103 );
+	for ( i = 0; i < s.length; i++ ) {
+		v = zeta( s[ i ] );
+		t.ok( v === PINF || v === NINF, 'returns '+v+' when provided '+s[i] );
+	}
 	t.end();
 });
 
