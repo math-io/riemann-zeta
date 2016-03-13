@@ -40,10 +40,10 @@ tape( 'the function evaluates the Riemann zeta function', function test( t ) {
 	s = data.x;
 	expected = data.expected;
 	for ( i = 0; i < s.length; i++ ) {
-		v = zeta( s[ i ] );
-		delta = abs( v - expected[ i ] );
-		tol = (31*EPS) * Math.max( 1, abs( v ), abs( expected[ i ]) );
-		t.ok( delta <= tol, 'within tolerance. s: ' + s[i] + '. v: ' + v + '. E: ' + expected[i] + '. Δ: ' + delta + '. Tol: ' + tol + '.' );
+		v = zeta( s[i] );
+		delta = abs( v - expected[i] );
+		tol = (34*EPS) * Math.max( 1, abs( v ), abs( expected[i] ) );
+		t.ok( delta <= tol, 'within tolerance. s: '+s[i]+'. v: '+v+'. E: '+expected[i]+'. Δ: '+delta+'. Tol: '+tol+'.' );
 	}
 	t.end();
 });
@@ -63,12 +63,12 @@ tape( 'if evaluated at a pole (`s = 1`), the function returns `NaN`', function t
 	t.end();
 });
 
-tape( 'the function evaluates returns `1` for all input values greater or equal than `63`', function test( t ) {
+tape( 'the function evaluates returns `1` for all input values greater or equal than `56`', function test( t ) {
 	var s;
 	var v;
 	var i;
 
-	s = linspace( 63, 100, 200 );
+	s = linspace( 56, 100, 200 );
 	for ( i = 0; i < s.length; i++ ) {
 		v = zeta( s[ i ] );
 		t.equal( v, 1, 'returns 1 when provided '+s[i] );
@@ -92,47 +92,114 @@ tape( 'if provided `-1` (special value), the function returns `-1/12`', function
 });
 
 tape( 'if provided `-13` (special value), the function returns `-1/12`', function test( t ) {
-	var v = zeta( -13 );
-	t.equal( v, -1/12, 'returns -1/12' );
+	var expected;
+	var delta;
+	var tol;
+	var s;
+	var v;
+
+	expected = -1/12;
+
+	s = -13;
+	v = zeta( s );
+	delta = abs( v - expected );
+	tol = EPS * abs( expected );
+
+	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. expected: '+expected+' tol: '+tol );
 	t.end();
 });
 
 tape( 'if provided `4` (special value), the function returns `~1.0823`', function test( t ) {
-	var v = zeta( 4 );
+	var expected;
+	var delta;
+	var tol;
+	var s;
+	var v;
 
 	// https://oeis.org/A0013662
-	t.equal( v, 1.082323233711138191516003696541167, 'returns ~1.0823' );
+	expected = 1.082323233711138191516003696541167;
+
+	s = 4;
+	v = zeta( s );
+	delta = abs( v - expected );
+	tol = EPS * abs( expected );
+
+	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. expected: '+expected+'. tol: '+tol );
 	t.end();
 });
 
 tape( 'if provided `3` (special value), the function returns `~1.202`', function test( t ) {
-	var v = zeta( 3 );
+	var expected;
+	var delta;
+	var tol;
+	var s;
+	var v;
 
 	// https://oeis.org/A002117
-	t.equal( v, 1.2020569031595942853997, 'returns ~1.202' );
+	expected = 1.2020569031595942853997;
+
+	s = 3;
+	v = zeta( s );
+	delta = abs( v - expected );
+	tol = EPS * abs( expected );
+
+	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. expected: '+expected+'. tol: '+tol );
 	t.end();
 });
 
 tape( 'if provided `2` (special value), the function returns `~1.645`', function test( t ) {
-	var v = zeta( 2 );
+	var expected;
+	var delta;
+	var tol;
+	var s;
+	var v;
 
 	// https://oeis.org/A013661
-	t.equal( v, 1.6449340668482264364724151666460251892189499012067984377355582293700074704032, 'returns ~1.645' );
+	expected = 1.6449340668482264364724151666460251892189499012067984377355582293700074704032;
+
+	s = 2;
+	v = zeta( s );
+	delta = abs( v - expected );
+	tol = EPS * abs( expected );
+
+	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. expected: '+expected+'. tol: '+tol );
 	t.end();
 });
 
 tape( 'if provided `3/2` (special value), the function returns `~2.612`', function test( t ) {
-	var v = zeta( 3/2 );
+	var expected;
+	var delta;
+	var tol;
+	var s;
+	var v;
 
 	// https://oeis.org/A078434
-	t.equal( v, 2.61237534868548834334856756792407163057080065240006340757332824881492776768827286099624386812631195238297, 'returns ~2.612' );
+	expected = 2.61237534868548834334856756792407163057080065240006340757332824881492776768827286099624386812631195238297;
+
+	s = 3/2;
+	v = zeta( s );
+	delta = abs( v - expected );
+	tol = EPS * abs( expected );
+
+	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. expected: '+expected+'. tol: '+tol );
 	t.end();
 });
 
 tape( 'if provided `1/2` (special value), the function returns `~-1.46`', function test( t ) {
-	var v = zeta( 1/2 );
+	var expected;
+	var delta;
+	var tol;
+	var s;
+	var v;
 
 	// https://oeis.org/A059750
-	t.equal( v, -1.4603545088095868128894991525152980124672293310125814905428860878, 'returns ~-1.46' );
+	expected = -1.4603545088095868128894991525152980124672293310125814905428860878;
+
+	s = 1/2;
+	v = zeta( s );
+	delta = abs( v - expected );
+	tol = EPS * abs( expected );
+
+	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. expected: '+expected+'. tol: '+tol );
 	t.end();
 });
