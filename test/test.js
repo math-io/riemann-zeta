@@ -120,7 +120,9 @@ tape( 'the function handles negative values which are larger in magnitude than t
 	s = -171.1;
 	v = zeta( s );
 	delta = abs( v - expected );
-	tol = 286 * EPS * abs( expected );
+
+	// Note: FF seems to return less precise results (https://travis-ci.org/math-io/riemann-zeta/jobs/115748766). For Node/Chrome, 286*eps.
+	tol = 355 * EPS * abs( expected );
 
 	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. E: '+expected+' Δ: '+delta+'. tol: '+tol );
 
