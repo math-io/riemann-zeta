@@ -127,6 +127,28 @@ tape( 'the function handles negative values which are larger in magnitude than t
 	t.end();
 });
 
+tape( 'the function handles negative integer values which are larger in magnitude than twice the index of the maximum Bernoulli number', function test( t ) {
+	var expected;
+	var delta;
+	var tol;
+	var s;
+	var v;
+
+	// Only value satisfies this criterion without overflowing: -259. (|-257|+1)/2| = 128, which is the index of the largest Bernoulli number. -261 overflows.
+
+	// Wolfram: zeta( -259 )
+	expected = 8.760156344622921514904073013488223219302793651253880e306;
+
+	s = -259;
+	v = zeta( s );
+	delta = abs( v - expected );
+	tol = 352 * EPS * abs( expected );
+
+	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. E: '+expected+' Δ: '+delta+'. tol: '+tol );
+
+	t.end();
+});
+
 tape( 'the function returns `+-infinity` for large negative non-integer values', function test( t ) {
 	var s;
 	var v;
