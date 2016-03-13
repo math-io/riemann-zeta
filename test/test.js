@@ -110,6 +110,36 @@ tape( 'the function returns `+-infinity` for large negative non-integer values',
 	t.end();
 });
 
+tape( 'the function handles negative values which are slightly larger than the maximum factorial', function test( t ) {
+	var expected;
+	var delta;
+	var tol;
+	var s;
+	var v;
+
+	// Wolfram: zeta( -170.7 )
+	expected = 4.236821692180446371109004075383326908604561232133963e171;
+
+	s = -170.7;
+	v = zeta( s );
+	delta = abs( v - expected );
+	tol = 53 * EPS * abs( expected );
+
+	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. E: '+expected+' Δ: '+delta+'. tol: '+tol );
+
+	// Wolfram: zeta( -171.1 )
+	expected = 1.762429756041972327545919944532107376580768035147432e172;
+
+	s = -171.1;
+	v = zeta( s );
+	delta = abs( v - expected );
+	tol = 286 * EPS * abs( expected );
+
+	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. E: '+expected+' Δ: '+delta+'. tol: '+tol );
+
+	t.end();
+});
+
 tape( 'if provided `0` (special value), the function returns `-0.5`', function test( t ) {
 	var v = zeta( 0 );
 	t.equal( v, -0.5, 'returns -0.5' );
@@ -136,7 +166,7 @@ tape( 'if provided `-13` (special value), the function returns `-1/12`', functio
 	delta = abs( v - expected );
 	tol = EPS * abs( expected );
 
-	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. expected: '+expected+' tol: '+tol );
+	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. E: '+expected+' Δ: '+delta+'. tol: '+tol );
 	t.end();
 });
 
@@ -155,7 +185,7 @@ tape( 'if provided `4` (special value), the function returns `~1.0823`', functio
 	delta = abs( v - expected );
 	tol = EPS * abs( expected );
 
-	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. expected: '+expected+'. tol: '+tol );
+	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. E: '+expected+' Δ: '+delta+'. tol: '+tol );
 	t.end();
 });
 
@@ -174,7 +204,7 @@ tape( 'if provided `3` (special value), the function returns `~1.202`', function
 	delta = abs( v - expected );
 	tol = EPS * abs( expected );
 
-	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. expected: '+expected+'. tol: '+tol );
+	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. E: '+expected+' Δ: '+delta+'. tol: '+tol );
 	t.end();
 });
 
@@ -193,7 +223,7 @@ tape( 'if provided `2` (special value), the function returns `~1.645`', function
 	delta = abs( v - expected );
 	tol = EPS * abs( expected );
 
-	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. expected: '+expected+'. tol: '+tol );
+	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. E: '+expected+' Δ: '+delta+'. tol: '+tol );
 	t.end();
 });
 
@@ -212,7 +242,7 @@ tape( 'if provided `3/2` (special value), the function returns `~2.612`', functi
 	delta = abs( v - expected );
 	tol = EPS * abs( expected );
 
-	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. expected: '+expected+'. tol: '+tol );
+	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. E: '+expected+' Δ: '+delta+'. tol: '+tol );
 	t.end();
 });
 
@@ -231,6 +261,6 @@ tape( 'if provided `1/2` (special value), the function returns `~-1.46`', functi
 	delta = abs( v - expected );
 	tol = EPS * abs( expected );
 
-	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. expected: '+expected+'. tol: '+tol );
+	t.ok( delta <= tol, 'within tolerance. s: '+s+'. v: '+v+'. E: '+expected+' Δ: '+delta+'. tol: '+tol );
 	t.end();
 });
