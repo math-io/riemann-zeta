@@ -57,8 +57,6 @@
     "math-abs": "^1.0.2",
     "math-evalrational": "^1.0.0",
     "math-exp": "^1.0.0",
-    "math-factorial": "^1.0.0",
-    "math-float64-ldexp": "^1.0.0",
     "math-floor": "^1.0.1",
     "math-gamma": "^1.0.2",
     "math-gammaln": "^1.0.0",
