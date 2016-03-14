@@ -45,7 +45,7 @@ v = zeta( 70 );
 v = zeta( 0.5 );
 // returns ~-1.46
 
-v = zeta( 1.0 );
+v = zeta( 1.0 ); // pole
 // returns NaN
 
 v = zeta( NaN );
