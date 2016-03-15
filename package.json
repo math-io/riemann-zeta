@@ -1,7 +1,7 @@
 {
-  "name": "math-zeta",
+  "name": "math-riemann-zeta",
   "version": "0.0.0",
-  "description": "Riemann zeta function",
+  "description": "Riemann Zeta function.",
   "author": {
     "name": "Philipp Burckhardt",
     "email": "pburckhardt@outlook.com"
@@ -10,40 +10,91 @@
     {
       "name": "Philipp Burckhardt",
       "email": "pburckhardt@outlook.com"
+    },
+    {
+      "name": "Athan Reines",
+      "email": "kgryte@gmail.com"
     }
   ],
   "scripts": {
-    "test": "tape \"./test/*.js\"",
+    "test": "if [ \"${TRAVIS}\" ]; then npm run test-ci; else npm run test-local; fi",
+    "test-local": "tape \"./test/*.js\" | tap-spec",
+    "test-ci": "npm run test-local && xvfb-run npm run test-browsers",
     "test-cov": "istanbul cover --dir ./reports/coverage --report lcov tape -- \"./test/*.js\"",
+    "test-browsers": "browserify ./test/*.js | testling | tap-spec",
     "coverage": "istanbul cover --dir ./reports/codecov/coverage --report lcovonly tape -- \"./test/*.js\" && cat ./reports/codecov/coverage/lcov.info | codecov && rm -rf ./reports/codecov"
   },
   "main": "./lib",
   "repository": {
     "type": "git",
-    "url": "git://github.com/math-io/zeta.git"
+    "url": "git://github.com/math-io/riemann-zeta.git"
   },
-  "keywords": [],
-  "bugs": { 
-    "url": "https://github.com/math-io/zeta/issues"
+  "keywords": [
+    "compute-io",
+    "compute.io",
+    "compute",
+    "computation",
+    "math-io",
+    "math",
+    "mathematics",
+    "math.io",
+    "number",
+    "zeta",
+    "riemann",
+    "euler",
+    "number theory",
+    "physics",
+    "special function",
+    "complex analysis"
+  ],
+  "bugs": {
+    "url": "https://github.com/math-io/riemann-zeta/issues"
   },
   "dependencies": {
+    "const-ninf-float64": "^1.0.0",
+    "const-pi": "^1.0.3",
+    "const-pinf-float64": "^1.0.0",
     "math-abs": "^1.0.2",
     "math-evalrational": "^1.0.0",
     "math-exp": "^1.0.0",
     "math-floor": "^1.0.1",
     "math-gamma": "^1.0.2",
+    "math-gammaln": "^1.0.0",
+    "math-ln": "^1.0.0",
     "math-power": "^1.0.0",
+    "math-powm1": "^1.0.0",
     "math-sinpi": "^1.0.0"
   },
   "devDependencies": {
+    "browserify": "13.x.x",
     "chai": "3.x.x",
     "codecov": "1.x.x",
     "compute-linspace": "^1.0.0",
+    "const-eps-float64": "^1.0.0",
     "istanbul": "^0.4.1",
     "jshint": "2.x.x",
     "jshint-stylish": "2.x.x",
     "tap-spec": "4.x.x",
-    "tape": "4.x.x"
+    "tape": "4.x.x",
+    "testling": "1.x.x"
+  },
+  "testling": {
+    "files": [
+      "test/*.js"
+    ],
+    "browsers": [
+      "iexplore/6.0..latest",
+      "firefox/3.0..latest",
+      "firefox/nightly",
+      "chrome/4.0..latest",
+      "chrome/canary",
+      "opera/10.0..latest",
+      "opera/next",
+      "safari/4.0..latest",
+      "ipad/6.0..latest",
+      "iphone/6.0..latest",
+      "android-browser/4.2..latest"
+    ]
   },
   "license": "MIT"
 }

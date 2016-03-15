@@ -3,11 +3,11 @@
 var linspace = require( 'compute-linspace' );
 var zeta = require( './../lib' );
 
-var x = linspace( -50, 50, 200 );
+var s = linspace( -50, 50, 200 );
 var v;
 var i;
 
-for ( i = 0; i < x.length; i++ ) {
-	v = zeta( x[ i ] );
-	console.log( 'x: %d, f(x): %d', x[ i ], v );
+for ( i = 0; i < s.length; i++ ) {
+	v = zeta( s[ i ] );
+	console.log( 's: %d, ζ(s): %d', s[ i ], v );
 }

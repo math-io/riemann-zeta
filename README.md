@@ -2,45 +2,54 @@ Riemann Zeta Function
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][build-image]][build-url] [![Coverage Status][coverage-image]][coverage-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Riemann [Zeta][zeta-function] function.
+> [Riemann zeta][zeta-function] function.
 
-The [Zeta][zeta-function] function evaluated at `s` is
+The [Riemann zeta][zeta-function] function is the [analytic continuation][analytic-continuation] of the infinite series 
 
-<div class="equation" align="center" data-raw-text="\zeta(s) =\sum_{k=1}^\infty\frac{1}{k^s}" data-equation="">
-	<img src="https://cdn.rawgit.com/math-io/zeta/faeb230ec3e8dba0e1011b5ddfe219c784e98c67/docs/img/eqn.svg" alt="Infinite series for zeta function">
+<div class="equation" align="center" data-raw-text="\zeta(s) =\sum_{k=1}^\infty\frac{1}{k^s}" data-equation="eq:riemann_zeta_function">
+	<img src="https://cdn.rawgit.com/math-io/riemann-zeta/faeb230ec3e8dba0e1011b5ddfe219c784e98c67/docs/img/eqn.svg" alt="Riemann zeta function">
 	<br>
 </div>
+
+where `s` is a complex variable equal to `σ + ti`. The series is only convergent when the real part of `s`, `σ`, is greater than `1`.
+
 
 ## Installation
 
 ``` bash
-$ npm install math-zeta
+$ npm install math-riemann-zeta
 ```
 
 
 ## Usage
 
 ``` javascript
-var zeta = require( 'math-zeta' );
+var zeta = require( 'math-riemann-zeta' );
 ```
 
 
-#### zeta( x )
+#### zeta( s )
 
-Evaluates the Riemann [zeta function][zeta-function].
+Evaluates the [Riemann zeta][zeta-function] function as a function of a real variable `s` (i.e., `t = 0`).
 
 ``` javascript
-var val = zeta( 1.1 );
+var v = zeta( 1.1 );
 // returns ~10.584
 
-val = zeta( -4 );
+v = zeta( -4 );
 // returns 0
 
-val = zeta( 70 );
+v = zeta( 70 );
 // returns 1
 
-val = zeta( 0.5 );
+v = zeta( 0.5 );
 // returns ~-1.46
+
+v = zeta( 1.0 ); // pole
+// returns NaN
+
+v = zeta( NaN );
+// returns NaN
 ```
 
 
@@ -48,15 +57,15 @@ val = zeta( 0.5 );
 
 ``` javascript
 var linspace = require( 'compute-linspace' );
-var zeta = require( 'math-zeta' );
+var zeta = require( 'math-riemann-zeta' );
 
-var x = linspace( -50, 50, 200 );
+var s = linspace( -50, 50, 200 );
 var v;
 var i;
 
-for ( i = 0; i < x.length; i++ ) {
-	v = zeta( x[ i ] );
-	console.log( 'x: %d, f(x): %d', x[ i ], v );
+for ( i = 0; i < s.length; i++ ) {
+	v = zeta( s[ i ] );
+	console.log( 's: %d, ζ(s): %d', s[ i ], v );
 }
 ```
 
@@ -124,23 +133,23 @@ $ make view-browser-tests
 Copyright &copy; 2016. The [Compute.io][compute-io] Authors.
 
 
-[npm-image]: http://img.shields.io/npm/v/math-zeta.svg
-[npm-url]: https://npmjs.org/package/math-zeta
+[npm-image]: http://img.shields.io/npm/v/math-riemann-zeta.svg
+[npm-url]: https://npmjs.org/package/math-riemann-zeta
 
-[build-image]: http://img.shields.io/travis/math-io/zeta/master.svg
-[build-url]: https://travis-ci.org/math-io/zeta
+[build-image]: http://img.shields.io/travis/math-io/riemann-zeta/master.svg
+[build-url]: https://travis-ci.org/math-io/riemann-zeta
 
-[coverage-image]: https://img.shields.io/codecov/c/github/math-io/zeta/master.svg
-[coverage-url]: https://codecov.io/github/math-io/zeta?branch=master
+[coverage-image]: https://img.shields.io/codecov/c/github/math-io/riemann-zeta/master.svg
+[coverage-url]: https://codecov.io/github/math-io/riemann-zeta?branch=master
 
-[dependencies-image]: http://img.shields.io/david/math-io/zeta.svg
-[dependencies-url]: https://david-dm.org/math-io/zeta
+[dependencies-image]: http://img.shields.io/david/math-io/riemann-zeta.svg
+[dependencies-url]: https://david-dm.org/math-io/riemann-zeta
 
-[dev-dependencies-image]: http://img.shields.io/david/dev/math-io/zeta.svg
-[dev-dependencies-url]: https://david-dm.org/dev/math-io/zeta
+[dev-dependencies-image]: http://img.shields.io/david/dev/math-io/riemann-zeta.svg
+[dev-dependencies-url]: https://david-dm.org/dev/math-io/riemann-zeta
 
-[github-issues-image]: http://img.shields.io/github/issues/math-io/zeta.svg
-[github-issues-url]: https://github.com/math-io/zeta/issues
+[github-issues-image]: http://img.shields.io/github/issues/math-io/riemann-zeta.svg
+[github-issues-url]: https://github.com/math-io/riemann-zeta/issues
 
 [tape]: https://github.com/substack/tape
 [istanbul]: https://github.com/gotwarlost/istanbul
@@ -148,3 +157,4 @@ Copyright &copy; 2016. The [Compute.io][compute-io] Authors.
 
 [compute-io]: https://github.com/compute-io/
 [zeta-function]: https://en.wikipedia.org/wiki/Riemann_zeta_function
+[analytic-continuation]: https://en.wikipedia.org/wiki/Analytic_continuation
