@@ -51,9 +51,11 @@
     "url": "https://github.com/math-io/riemann-zeta/issues"
   },
   "dependencies": {
+    "const-ln-sqrt-two-pi": "^1.0.0",
     "const-ninf-float64": "^1.0.0",
-    "const-pi": "^1.0.3",
     "const-pinf-float64": "^1.0.0",
+    "const-sqrt-eps-float64": "^1.0.0",
+    "const-two-pi": "^1.0.1",
     "math-abs": "^1.0.2",
     "math-evalrational": "^1.0.0",
     "math-exp": "^1.0.0",
